@@ -16,6 +16,7 @@ const schoolRoute = require("./loaders/schoolLoader");
 const userRoute = require("./loaders/userLoader");
 const studentRoute = require("./loaders/studentLoader");
 const classroomRoute = require("./loaders/classroomLoader");
+const authRoute = require("./loaders/authRoute")
 
 // connect to the DB
 dbConnection();
@@ -37,6 +38,8 @@ app.use("/api/v1/schools", schoolRoute);
 app.use("/api/v1/students", studentRoute);
 app.use("/api/v1/classrooms", classroomRoute);
 app.use("/api/v1/users", userRoute);
+app.use("/api/v1/auth", authRoute);
+
 
 app.all("*", (req, res, next) => {
   next(new ApiError(`Can't find this route: ${req.originalUrl}`, 400));
