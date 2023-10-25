@@ -2,7 +2,7 @@ const asyncHandler = require("express-async-handler");
 const ApiError = require("../managers/api/apiError/apiError");
 
 // @desc    Authorization (User Permissions)
-// ["SuperAdmin", "Admin"]
+// ["SuperAdmin", "SchoolAdmin" , "UserAdmin"]
 exports.allowedTo = (...roles) =>
   asyncHandler(async (req, res, next) => {
     // 1) access roles
